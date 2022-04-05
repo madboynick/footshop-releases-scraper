@@ -84,10 +84,21 @@ async function getNames(url){
     let body = JSON.parse(response.body)
     let title = body.translations.en.title
     let subtitle = body.translations.en.subtitle
+
+    let closetime = body.closeRegistrationAt
+    let date = new Date(closetime)
+    let formattedDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+    let hours = (date.getHours() < 10) ? "0" + date.getHours() : date.getHours();
+    let minutes = (date.getMinutes() < 10) ? "0" + date.getMinutes() : date.getMinutes();
+    let formattedTime = hours + ":" + minutes;
+
+    formattedDate = formattedDate + " at " + formattedTime
+
+
     let status = body.status
 
     if(status == "Open"){
-    console.log(id + " - " + title + " (" + subtitle + ")")
+    console.log(id + " - " + title + " (" + subtitle + ") - Ending: " + formattedDate)
     id++;
 }
 
