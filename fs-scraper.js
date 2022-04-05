@@ -13,7 +13,6 @@ try {
 
     let response = await got('https://releases.footshop.com/', {
         
-        //'method' : GET,
         'headers' : {
             "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
             "accept-language": "sk-SK,sk;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -37,7 +36,7 @@ try {
    
 
     linkObjects.each((index, element) => {
-        //console.log(y)
+        
         if(!($(element).attr('href').includes("https")) && !($(element).attr('href').includes("shipping")) && !($(element).attr('href') == "/")){
             links[y] = ($(element).attr('href').split('-').pop());
         y++
@@ -66,7 +65,6 @@ async function getNames(url){
     try{
     let response = await got(url, {
         
-        //'method' : GET,
         'headers' : {
             "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
             "accept-language": "sk-SK,sk;q=0.9,en-US;q=0.8,en;q=0.7",
@@ -104,7 +102,6 @@ try {
 
     let response = await got(url, {
         
-        //'method' : GET,
         'headers' : {
             "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
             "accept-language": "sk-SK,sk;q=0.9,en-US;q=0.8,en;q=0.7",
